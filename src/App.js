@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import ConfirmOTP from "./Components/ConfirmOTP";
+import Login from "./Components/Login";
+import { Routes, Route } from "react-router-dom";
+import DownloadCertificate from "./Components/DownloadCertificate";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route exact path="/" element={<Login />} />
+      <Route exact path="/confirmotp" element={<ConfirmOTP />} />
+      <Route exact path="/downloadcertificate" element={<DownloadCertificate />} />
+
+    </Routes>
   );
 }
 
