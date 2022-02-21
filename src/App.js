@@ -8,8 +8,11 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Login />} />
       <Route exact path="/confirmotp" element={<ConfirmOTP />} />
-      <Route exact path="/downloadcertificate" element={<DownloadCertificate />} />
-
+      <Route
+        exact
+        path="/downloadcertificate"
+        element={<DownloadCertificate />}
+      />
     </Routes>
   );
 }

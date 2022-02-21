@@ -72,22 +72,12 @@ const Unauth = styled.span`
   /* margin-bottom: 10px; */
   padding-top: 15px;
   padding-bottom: 15px;
-
 `;
 
-// const WrongOTP = styled.span`
-//   color: red;
-//   align-items: center;
-//   font-size: 12px;
-//   margin-bottom: 10px;
-// `;
 const DownloadCertificate = () => {
   const [benId, setBenId] = useState([]);
   const [logout, setLogout] = useState(false);
-  // const userId = {
-  //     user1: '46469161198030',
-  //     user2: '17488642321190'
-  // }
+
   const downloadCertificate = async () => {
     const certificateResponse = await axios
       .get(
@@ -107,7 +97,6 @@ const DownloadCertificate = () => {
   const handleDownload = () => {
     downloadCertificate();
     localStorage.clear();
-    //       if(userId.user1 === benId || userId.user2 === benId)
   };
 
   return (

@@ -86,7 +86,7 @@ const Login = () => {
   const [emptymobile, setEmptymobile] = useState([]);
   const [samemobile, setSamemobile] = useState([]);
   const [apierror, setApiError] = useState([]);
-  const [setError] = useState(false);
+  const [error, setError] = useState(false);
   const sendOTP = async () => {
     const phoneResponse = await axios
       .post(
@@ -97,7 +97,6 @@ const Login = () => {
         { "Access-Control-Allow-Origin": "*" }
       )
       .catch((e) => {
-        // console.log(e.response);
         if (e.response.data.errorCode === "USRAUT0010") {
           setEmptymobile(e.response.data.error);
         } else if (e.response.status === 500) {
@@ -108,12 +107,10 @@ const Login = () => {
       });
 
     if (phoneResponse !== undefined && mobile.length === 10) {
-      debugger;
       console.log(phoneResponse.data.txnId);
       localStorage.setItem("txnId", phoneResponse.data.txnId);
       window.location.href = "./ConfirmOTP";
     }
-    // console.log(phoneResponse.data);
   };
 
   const handleClick = () => {
@@ -122,13 +119,11 @@ const Login = () => {
 
   const handlePhonerNumber = () => {
     const input = document.getElementsByTagName("input");
-    console.log(input[0]);
     input[0].style.color = "red";
   };
 
   const handlePhonerNumberReset = () => {
     const input = document.getElementsByTagName("input");
-    console.log(input[0]);
     input[0].style.color = "black";
   };
 

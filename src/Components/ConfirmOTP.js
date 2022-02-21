@@ -94,17 +94,13 @@ const ConfirmOTP = () => {
         }
       )
       .catch((e) => {
-        // console.log(e.response.status);
         if (e.response.status === 401) {
           setUnauth(e.response.data);
         } else if (e.response.data.errorCode === "USRAUT0014") {
           setInvalidotp(e.response.data.error);
         }
       });
-    // .catch((e) => {
-    //     console.log(e.response)
-    // })
-    // console.log('this is data from otp api', validateResponse.data);
+
     if (validateResponse !== undefined && otp.length === 6) {
       localStorage.setItem("token", validateResponse.data.token);
       window.location.href = "./DownloadCertificate";
